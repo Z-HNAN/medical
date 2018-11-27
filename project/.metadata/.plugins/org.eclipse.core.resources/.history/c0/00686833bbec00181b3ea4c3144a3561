@@ -1,0 +1,10 @@
+package cn.edu.hdu.zhn.medical.base.vo;
+
+/**
+ * 放款展示模型
+ * @author Z_HNAN
+ *
+ */
+public class PassMoneyBillVO {
+	
+}

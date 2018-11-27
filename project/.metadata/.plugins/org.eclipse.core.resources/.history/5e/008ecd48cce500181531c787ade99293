@@ -1,0 +1,48 @@
+package cn.edu.hdu.zhn.medical.base.domain;
+
+import java.math.BigDecimal;
+import java.util.Date;
+
+import lombok.Getter;
+import lombok.Setter;
+
+/**
+ * 主要的申请报销 账单模型
+ * @author Z_HNAN
+ *
+ */
+@Getter
+@Setter
+public class Bill extends BaseDomain{
+	
+	public final static int BILL_STATE_PASS = 0;		// 已报销
+	public final static int BILL_STATE_REJECT = 1;	// 报销拒绝
+	public final static int BILL_STATE_PENDING = 2;	// 审批中
+	
+	public final static int ILLNESS_TYPE_OUTPATIENT = 0;		// 门诊
+	public final static int ILLNESS_TYPE_NORMAL = 1;		// 普通疾病
+	public final static int ILLNESS_TYPE_SERIOUS = 2;		// 重大疾病
+	
+	// 报销相关
+	private int billState;	// 报销状态
+	private Logininfo applier;	// 申请人
+	private Date applyDate;		// 申请时间
+	private int illnessType;		// 疾病类型
+	private SystemDictionaryItem seriousType;	// 大病类型
+	private String hospital;	// 所在医院
+	private Date inHospitalDate;	// 住院时间
+	private Date outHospitalDate;	// 出院时间
+	private BigDecimal applyMoney;	// 申请报销金额
+	private String description;		// 简要描述
+	private String billImg;			// 报销图片
+	private Long comDeptId;		// 所属部门Id
+	
+	// 审核相关
+	private Logininfo auditor;		// 审核人
+	private Date auditDate;			// 审核时间
+	private String note;			// 审核批注
+	private BigDecimal auditMoney;	// 审批金额
+	
+	
+	public String illnessType
+}

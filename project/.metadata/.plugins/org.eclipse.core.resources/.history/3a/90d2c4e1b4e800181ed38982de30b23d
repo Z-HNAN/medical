@@ -1,0 +1,20 @@
+package cn.edu.hdu.zhn.medical.mgrsite.test;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import cn.edu.hdu.zhn.medical.base.service.ISystemDictionaryItemService;
+
+@SpringBootTest
+public class AppTest {
+	
+	@Autowired
+	private ISystemDictionaryItemService systemDictionaryItemService;
+	
+	@Test
+	public void test1() throws Exception {
+		
+	}
+
+}

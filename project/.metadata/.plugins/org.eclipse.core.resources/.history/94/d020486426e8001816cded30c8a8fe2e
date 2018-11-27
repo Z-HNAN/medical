@@ -1,0 +1,30 @@
+package cn.edu.hdu.zhn.medical.base.service;
+
+import java.math.BigDecimal;
+
+import cn.edu.hdu.zhn.medical.base.domain.MedicalRoom;
+
+/**
+ * 医务室服务类
+ * @author Z_HNAN
+ *
+ */
+public interface IMedicalRoomService {
+
+	/**
+	 * 创建医务室的方法
+	 * @param username
+	 * @param password
+	 * @param comId
+	 * @param budgetAmount
+	 */
+	void createMedicalRoom(String username, String password, Long comId, BigDecimal budgetAmount);
+
+	/**
+	 * 得到medicalRoom
+	 * @param medicalDept
+	 * @return
+	 */
+	MedicalRoom get(Long medicalDept);
+
+}

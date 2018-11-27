@@ -1,0 +1,18 @@
+package cn.edu.hdu.zhn.medical.website.test;
+
+import java.util.ArrayList;
+
+import org.junit.Test;
+
+/**
+ * 临时测试类
+ * @author Z_HNAN
+ *
+ */
+public class AppTest {
+
+	@Test
+	public void testListJson() throws Exception {
+		ArrayList<Integer> list = new ArrayList<>();
+	}
+}

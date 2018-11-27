@@ -1,0 +1,10 @@
+package cn.edu.hdu.zhn.medical.base.service;
+
+/**
+ * 数据字典明细的服务类
+ * @author Z_HNAN
+ *
+ */
+public interface ISystemDictionaryItemService {
+
+}

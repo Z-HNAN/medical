@@ -1,0 +1,32 @@
+package cn.edu.hdu.zhn.mock.mockBank;
+
+import java.math.BigDecimal;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+@RequestMapping("bankService")
+public class BankController {
+	
+	/**
+	 * 用户私钥
+	 */
+	@Value("")
+	private String privateKey;
+
+	/**
+	 * 模拟转账接口
+	 * @param bankNumber  银行卡号
+	 * @param amount 		转账金额
+	 * @param privateKey	转账私钥
+	 * @return
+	 */
+	@RequestMapping("transferAccounts")
+	@ResponseBody
+	public String transferAccounts(String bankNumber, BigDecimal amount, String privateKey) {
+		
+		return "SUCCESS";
+	}
+}

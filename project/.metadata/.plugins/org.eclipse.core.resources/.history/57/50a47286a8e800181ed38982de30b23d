@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.hdu.zhn.medical.base.mapper.ComDeptMapper">
+
+
+  <resultMap id="ComResultMap" type="cn.edu.hdu.zhn.medical.base.domain.ComDept">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="com_dept_name" jdbcType="VARCHAR" property="comDeptName" />
+    <result column="type" jdbcType="TINYINT" property="type" />
+  </resultMap>
+  
+  <resultMap id="DeptResultMap" type="cn.edu.hdu.zhn.medical.base.domain.ComDept" extends="ComResultMap">
+  	<!-- 使用额外SQL去查询 -->
+  	<collection property="parentComDept" column="parent_com_dept_id" 
+    	ofType="cn.edu.hdu.zhn.medical.base.domain.ComDept" select="selectComByParentId"/>
+  </resultMap>
+  
+  
+  <delete id="deleteByPrimaryKey" >
+    delete from `com_dept`
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  
+  <insert id="insert" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
+    insert into `com_dept` (com_dept_name, type, parent_com_dept_id
+      )
+    values (#{comDeptName,jdbcType=VARCHAR}, #{type,jdbcType=TINYINT}, #{parentComDept.id,jdbcType=BIGINT}
+      )
+  </insert>
+  
+  <update id="updateByPrimaryKey">
+    update `com_dept`
+    set com_dept_name = #{comDeptName,jdbcType=VARCHAR},
+      type = #{type,jdbcType=TINYINT},
+      parent_com_dept_id = #{parentComDept.id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <select id="listDeptIdByComId" resultType="int">
+  
+  </select>
+  
+  <sql id="base_column">
+  	id, com_dept_name, type, parent_com_dept_id
+  </sql>
+  
+  <select id="selectComByParentId" resultMap="ComResultMap">
+  	SELECT <include refid="base_column"/>
+  	from `com_dept`
+  	 where id = #{id,jdbcType=BIGINT}
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="DeptResultMap">
+    select <include refid="base_column"/>
+    from `com_dept`
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  
+  <select id="getCountByComDeptType" resultType="int">
+  	SELECT COUNT(id) from `com_dept` WHERE type = #{comDeptType}
+  </select>
+  
+  <select id="listCom" resultMap="ComResultMap">
+  	SELECT <include refid="base_column"/> 
+  	FROM `com_dept`
+  	WHERE type = 0
+  </select>
+  
+  <select id="listDeptByParentComId" resultMap="DeptResultMap">
+  	SELECT <include refid="base_column"/>
+  	FROM `com_dept`
+  	WHERE parent_com_dept_id = #{id}
+  </select>
+  
+  
+  
+</mapper>

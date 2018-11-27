@@ -1,0 +1,11 @@
+package cn.edu.hdu.zhn.medical.website.controller;
+
+/**
+ * 公司部门控相关
+ * @author Z_HNAN
+ *
+ */
+@Controller
+public class ComDeptController {
+
+}

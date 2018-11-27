@@ -1,0 +1,6 @@
+package cn.edu.hdu.zhn.medical.base.query;
+
+public class BillHistoryQueryObject extends QueryObject{
+	
+	
+}

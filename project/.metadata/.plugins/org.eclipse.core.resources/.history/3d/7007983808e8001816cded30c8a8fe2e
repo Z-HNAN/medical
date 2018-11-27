@@ -1,0 +1,16 @@
+package cn.edu.hdu.zhn.medical.base.mapper;
+
+import cn.edu.hdu.zhn.medical.base.domain.MedocalRoom;
+import java.util.List;
+
+public interface MedocalRoomMapper {
+    int deleteByPrimaryKey(Long id);
+
+    int insert(MedocalRoom record);
+
+    MedocalRoom selectByPrimaryKey(Long id);
+
+    List<MedocalRoom> selectAll();
+
+    int updateByPrimaryKey(MedocalRoom record);
+}

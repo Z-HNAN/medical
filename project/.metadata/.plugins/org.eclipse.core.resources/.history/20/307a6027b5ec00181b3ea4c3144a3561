@@ -1,0 +1,20 @@
+package cn.edu.hdu.zhn.medical.base.service;
+
+import java.math.BigDecimal;
+
+/**
+ * 银行对接服务
+ * @author Z_HNAN
+ *
+ */
+public interface IBankService {
+
+	/**
+	  * 模拟转账接口
+	 * @param bankNumber  银行卡号
+	 * @param amount 		转账金额
+	 * @param privateKey	转账私钥
+	 * @return
+	 */
+	boolean transfer(String bankNumber, BigDecimal amount, String privateKey );
+}

@@ -1,0 +1,30 @@
+package cn.edu.hdu.zhn.medical.mgrsite.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import cn.edu.hdu.zhn.medical.base.domain.SystemDictionaryItem;
+import cn.edu.hdu.zhn.medical.base.query.PageResult;
+import cn.edu.hdu.zhn.medical.base.query.SystemDictionaryQueryObject;
+import cn.edu.hdu.zhn.medical.base.service.ISystemDictionaryItemService;
+
+/**
+ * 大病类型的controller
+ * @author Z_HNAN
+ *
+ */
+@Controller
+public class SeriousController {
+	
+	@Autowired
+	private ISystemDictionaryItemService systemDictionaryItemService;
+	
+	@RequestMapping("seriousList")
+	public String seriousList(@ModelAttribute("qo") SystemDictionaryQueryObject qo, Model model) {
+		qo.setIsdel(SystemDictionaryItem.ISDEL_FALSE);
+		PageResult pageResult = this.systemDictionaryItemService.query(qo);
+	}
+}

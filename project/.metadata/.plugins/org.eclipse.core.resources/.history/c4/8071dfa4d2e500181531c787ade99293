@@ -1,0 +1,14 @@
+package cn.edu.hdu.zhn.medical.base.service;
+
+import cn.edu.hdu.zhn.medical.base.query.PageResult;
+
+/**
+ * 数据字典明细的服务类
+ * @author Z_HNAN
+ *
+ */
+public interface ISystemDictionaryItemService {
+	
+	// 高级查询
+	PageResult<>
+}

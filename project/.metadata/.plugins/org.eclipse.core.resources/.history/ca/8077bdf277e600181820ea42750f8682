@@ -1,0 +1,10 @@
+package cn.edu.hdu.zhn.medical.base.service;
+
+/**
+ * 员工信息相关服务
+ * @author Z_HNAN
+ *
+ */
+public interface IEmployeeService {
+
+}

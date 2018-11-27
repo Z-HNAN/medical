@@ -1,0 +1,17 @@
+package cn.edu.hdu.zhn.medical.base.service.impl;
+
+import java.math.BigDecimal;
+
+import org.springframework.stereotype.Service;
+
+import cn.edu.hdu.zhn.medical.base.service.IBankService;
+@Service
+public class BankServiceImpl implements IBankService{
+
+	@Override
+	public boolean transfer(String bankNumber, BigDecimal amount, String privateKey) {
+		return false;
+	}
+
+	
+}

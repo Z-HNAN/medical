@@ -1,0 +1,13 @@
+AS_INTERNAL_color_bold=false
+AS_KEYWORD_color_bold=false
+AS_PRIVATE_color_bold=false
+AS_PROTECTED_color_bold=false
+AS_PUBLIC_color_bold=false
+AS_RETURN_color_bold=false
+JAVADOC_LINK_color_strikethrough=false
+JAVADOC_LINK_color_underline=false
+JAVADOC_color_italic=false
+MULTILINE_COMMENT_color_italic=true
+SINGLELINE_COMMENT_color_bold=false
+SINGLELINE_COMMENT_color_italic=true
+eclipse.preferences.version=1

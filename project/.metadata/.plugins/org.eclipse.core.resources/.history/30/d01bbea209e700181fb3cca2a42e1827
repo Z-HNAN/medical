@@ -1,0 +1,15 @@
+package cn.edu.hdu.zhn.medical.base.vo;
+
+import java.util.List;
+
+import cn.edu.hdu.zhn.medical.base.domain.ComDept;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class FullComDept {
+	
+	private ComDept com;
+	private List<ComDept> depts = new ArrayList<ComDept>;
+}

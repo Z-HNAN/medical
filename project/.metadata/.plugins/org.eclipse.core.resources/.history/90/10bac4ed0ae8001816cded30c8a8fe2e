@@ -1,0 +1,23 @@
+package cn.edu.hdu.zhn.medical.base.service.impl;
+
+import java.math.BigDecimal;
+
+import org.springframework.stereotype.Service;
+
+import cn.edu.hdu.zhn.medical.base.service.IMedicalRoomService;
+/**
+ * 医务室相关服务类
+ * @author Z_HNAN
+ *
+ */
+@Service
+public class MedicalRoomServiceImpl implements IMedicalRoomService{
+
+	@Override
+	public void createMedicalRoom(String username, String password, Long comId, BigDecimal budgetAmount) {
+		
+	}
+
+	
+	
+}

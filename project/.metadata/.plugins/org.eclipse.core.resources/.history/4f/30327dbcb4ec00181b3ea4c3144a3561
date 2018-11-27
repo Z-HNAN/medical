@@ -1,0 +1,6 @@
+# 业务相关的配置文件
+
+# 银行放款API接口
+bank.=http://localhost:8077/bankService/transferAccounts?privateKey=666&bankNumber=66666&amount=100.00
+# 银行对接私钥
+bank.privateKey=666

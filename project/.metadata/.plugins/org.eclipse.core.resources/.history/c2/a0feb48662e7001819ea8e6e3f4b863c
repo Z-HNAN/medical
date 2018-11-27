@@ -1,0 +1,8 @@
+package cn.edu.hdu.zhn.medical.base.query;
+
+@Getter
+@Setter
+public class BillHistoryQueryObject extends QueryObject{
+	
+	private Long employeeId;	// 查询的人id
+}

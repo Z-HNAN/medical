@@ -1,0 +1,23 @@
+package cn.edu.hdu.zhn.medical.website.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import cn.edu.hdu.zhn.medical.website.anno.RequiredLogin;
+
+/**
+ * 报销单相关
+ * @author Z_HNAN
+ *
+ */
+@Controller
+public class BillController {
+
+	@RequestMapping("/bill")
+	@RequiredLogin
+	public String bill(Model model) {
+		
+		return "bill";
+	}
+}

@@ -1,0 +1,36 @@
+# mgrsite
+
+server.port=8080
+
+
+# db
+spring.datasource.druid.username=root
+spring.datasource.druid.password=admin
+spring.datasource.url=jdbc:mysql:///medical?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+spring.datasource.druid.driver-class-name=com.mysql.jdbc.Driver
+mybatis.config-location=classpath:mybatis/mybatis-config.xml
+mybatis.mapper-locations=classpath:/cn/edu/hdu/zhn/medical/base/mapper/*Mapper.xml
+logging.level.cn.edu.hdu.zhn.medical=DEBUG
+logging.file=logs/medical-mgrsite.log
+
+# freemarker 的试图解析器 上下文路劲为rc
+spring.freemarker.request-context-attribute=rc
+spring.freemarker.cache=false
+
+# 排出重启资源的时候   static/**, templates/** 
+spring.devtools.restart.exclude=static/**,templates/**
+
+# 补充的重启排出资源
+spring.devtools.restart.additional-exclude=public/** 
+
+# 修改文件,当修改了这文件的时候 才重启服务器
+spring.devtools.restart.triggerFile=mgr-trigger.file
+
+# 自定义的一个管理员初始化 账户名
+init.admin.username=admin
+# 自定义的一个管理员初始化 密码
+init.admin.password=root
+# 自定义的一个卫生所初始化 账户名
+init.medical.username=medical
+# 自定义的一个卫生所初始化 密码
+init.medical.password=root

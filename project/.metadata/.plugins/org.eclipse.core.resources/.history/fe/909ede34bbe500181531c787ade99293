@@ -1,0 +1,8 @@
+package cn.edu.hdu.zhn.medical.mgrsite.listener;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class InitAdminLister implements ApplicationListener<InitAdminLister>{
+
+}

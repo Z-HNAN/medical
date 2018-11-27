@@ -1,0 +1,97 @@
+package cn.edu.hdu.zhn.medical.mgrsite.controller;
+
+import java.math.BigDecimal;
+import java.util.Date;
+
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+/**
+ * 账单相关的控制器
+ * @author Z_HNAN
+ *
+ */
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import cn.edu.hdu.zhn.medical.base.domain.Bill;
+import cn.edu.hdu.zhn.medical.base.domain.MedicalRoom;
+import cn.edu.hdu.zhn.medical.base.query.BillAuditQueryObject;
+import cn.edu.hdu.zhn.medical.base.service.IBillService;
+import cn.edu.hdu.zhn.medical.base.service.IEmployeeService;
+import cn.edu.hdu.zhn.medical.base.service.IMedicalRoomService;
+import cn.edu.hdu.zhn.medical.base.util.JSONResult;
+import cn.edu.hdu.zhn.medical.base.util.UserContext;
+import cn.edu.hdu.zhn.medical.mgrsite.anno.RequiredLogin;
+@Controller		
+public class BillController {
+
+	@Autowired
+	private IBillService billService;
+	
+	@Autowired
+	private IEmployeeService employeeService;
+	
+	@Autowired
+	private IMedicalRoomService medicalRoomService;
+	
+	/**
+	 * 医务室审核账单的方法
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("auditBill")
+	@ResponseBody
+	public JSONResult auditBill(Model model, int state, Long id, BigDecimal auditMoney, String note) {
+		JSONResult json = new JSONResult();
+		try {
+			Bill bill = this.billService.get(id);
+			// 审核相关操作
+			bill.setAuditor(UserContext.getCurrent());
+			bill.setAuditDate(new Date());
+			bill.setNote(note);
+			bill.setApplyMoney(auditMoney);
+			// 更改当前订单状态
+			if(state == Bill.BILL_STATE_WAIT_PASS) {	// 审核成功,等待放款
+				bill.setBillState(Bill.BILL_STATE_WAIT_PASS);
+			}else if(state == Bill.BILL_STATE_REJECT){		// 审核失败
+				bill.setBillState(Bill.BILL_STATE_REJECT);
+			}else {
+				throw new RuntimeException("操作审核异常");
+			}
+			// 跟新bill操作
+			this.billService.update(bill);
+		} catch (Exception e) {
+			json.setSuccess(false);
+			json.setMsg(e.getMessage());
+		}
+		return json;
+	}
+	
+	/**
+	 * 医务室查看账单详列表的方法
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("billAuditListDept")
+	@RequiredLogin
+	public String billAuditListDept(@ModelAttribute("qo")BillAuditQueryObject qo, Model model, String jobId, String realname) {
+		
+		// 判断是否需要查询具体的员工信息
+		if(StringUtils.isNotBlank(jobId) || StringUtils.isNotBlank(realname)) {
+			Long employeeId =  this.employeeService.getIdByJobIdOrRealname(jobId, realname);
+			qo.setEmployeeId(employeeId);
+		}
+		
+		MedicalRoom medicalRoom = this.medicalRoomService.getByPrincipalId(UserContext.getCurrent().getId());
+		// 设置 当前comId为审核人所在的公司
+		qo.setComId(medicalRoom.getCom().getId());
+		// 设置当前订单的 状态为审核中的状态
+		qo.setBillState(Bill.BILL_STATE_PENDING);
+		
+		model.addAttribute("pageResult", this.billService.queryAudit(qo));
+		return "dept/bill_list";
+	}
+}

@@ -1,0 +1,25 @@
+package cn.edu.hdu.zhn.medical.base.service;
+
+import cn.edu.hdu.zhn.medical.base.domain.ComDept;
+
+/**
+ * 部门信息的服务对象
+ * @author Z_HNAN
+ *
+ */
+public interface IComDeptService {
+
+	/**
+	 * 根据id查询部门详细信息
+	 * @param comDeptId
+	 * @return
+	 */
+	ComDept get(Long comDeptId);
+	
+	/**
+	 * 根据comDeptType查询此种类部门的数量
+	 * @param comDeptType
+	 * @return
+	 */
+	int getByComDeptType(int comDeptType);
+}

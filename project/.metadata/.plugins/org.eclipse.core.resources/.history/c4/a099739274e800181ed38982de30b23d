@@ -1,0 +1,23 @@
+package cn.edu.hdu.zhn.medical.base.vo;
+
+import cn.edu.hdu.zhn.medical.base.domain.Bill;
+import cn.edu.hdu.zhn.medical.base.domain.Employee;
+import lombok.Getter;
+import lombok.Setter;
+
+/**
+ * 账单审核模型
+ * @author Z_HNAN
+ *
+ */
+@Getter
+@Setter
+public class BillAuditVO {
+	
+	private Employee employee;	//对应的员工对象
+	private Bill bill;			// 对应的账单对象
+	
+	public String getJsonString() {
+		
+	}
+}

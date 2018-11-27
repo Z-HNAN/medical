@@ -1,0 +1,50 @@
+package cn.edu.hdu.zhn.medical.mgrsite.listener;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.stereotype.Component;
+
+import cn.edu.hdu.zhn.medical.base.domain.Logininfo;
+import cn.edu.hdu.zhn.medical.base.service.ILogininfoService;
+
+/**
+ * 用于初始化Admin的监听对象
+ * @author Z_HNAN
+ *
+ */
+@Component
+public class InitAdminLister implements ApplicationListener<ContextRefreshedEvent> {
+	
+
+}
+
+	@Autowired
+	private ILogininfoService logininfoService;
+
+	@Override
+	public void onApplicationEvent(ContextRefreshedEvent event) {
+		this.initAdmin();
+	}
+
+	/**
+	 * 判断并初始化一个 超级管理员账户
+	 */
+	private void initAdmin() {
+		// 检测当前管理员的数量
+				int count = this.logininfoService.getCountByUserType(Logininfo.USER_TYPE_ADMIN);
+				if(count == 0 ) {
+					// 当前不存在超级管理员 需要创建一名
+					
+					Logininfo admin = new Logininfo();
+					admin.setUsername();
+					admin.setPassword();
+					admin.setState(Logininfo.STATE_NORMAL);
+					admin.setUserType(Logininfo.USER_TYPE_ADMIN);
+					this.logininfoMapper.insert(admin);
+	}
+
+
+	
+}

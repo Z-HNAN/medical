@@ -1,0 +1,27 @@
+package cn.edu.hdu.zhn.medical.website.test;
+
+import java.util.ArrayList;
+
+import org.junit.Test;
+
+import com.alibaba.fastjson.JSONObject;
+
+/**
+ * 临时测试类
+ * @author Z_HNAN
+ *
+ */
+public class AppTest {
+
+	@Test
+	public void testListJson() throws Exception {
+		ArrayList<Integer> list = new ArrayList<>();
+		list.add(1);
+		list.add(2);
+		list.add(1);
+		System.out.println(list);
+		System.out.println(JSONObject.toJSONString(list));
+		
+		
+	}
+}

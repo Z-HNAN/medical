@@ -1,0 +1,55 @@
+package cn.edu.hdu.zhn.medical.base.domain;
+
+import java.math.BigDecimal;
+
+public class MedicalRoom {
+    private Long id;
+
+    private Long principalId;
+
+    private BigDecimal budgetAmount;
+
+    private BigDecimal userAmount;
+
+    private Long comId;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getPrincipalId() {
+        return principalId;
+    }
+
+    public void setPrincipalId(Long principalId) {
+        this.principalId = principalId;
+    }
+
+    public BigDecimal getBudgetAmount() {
+        return budgetAmount;
+    }
+
+    public void setBudgetAmount(BigDecimal budgetAmount) {
+        this.budgetAmount = budgetAmount;
+    }
+
+    public BigDecimal getUserAmount() {
+        return userAmount;
+    }
+
+    public void setUserAmount(BigDecimal userAmount) {
+        this.userAmount = userAmount;
+    }
+
+    public Long getComId() {
+        return comId;
+    }
+
+    public void setComId(Long comId) {
+        this.comId = comId;
+    }
+}

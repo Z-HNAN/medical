@@ -1,0 +1,12 @@
+package cn.edu.hdu.zhn.mock.mockBank;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("bankService")
+public class BankController {
+
+	@RequestMapping("transferAccounts")
+	public String transferAccounts
+}

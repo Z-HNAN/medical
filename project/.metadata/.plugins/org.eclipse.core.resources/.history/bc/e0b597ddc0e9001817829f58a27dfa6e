@@ -1,0 +1,44 @@
+package cn.edu.hdu.zhn.medical.base.vo;
+
+import java.util.HashMap;
+
+import com.alibaba.fastjson.JSONObject;
+
+import cn.edu.hdu.zhn.medical.base.domain.Bill;
+import cn.edu.hdu.zhn.medical.base.domain.Employee;
+import lombok.Getter;
+import lombok.Setter;
+
+/**
+ * 账单审核模型
+ * @author Z_HNAN
+ *
+ */
+@Getter
+@Setter
+public class BillAuditVO {
+	
+	private Employee employee;	//对应的员工对象
+	private Bill bill;			// 对应的账单对象
+	
+	/**
+	 * 返回json处理串
+	 * @return
+	 */
+	public String getJsonString() {
+		HashMap<String, Object> json = new HashMap<>();
+		json.put("id", bill.getId());
+		json.put("jobId", employee.getJobId());
+		json.put("realname", employee.getRealname());
+		json.put("illnessType", bill.getIllnessTypeDisplay());
+		if(bill.getSeriousType() != null) {
+			// 重大疾病才会产生seriousType
+			json.put("seriousType", bill.getSeriousType().getTitle());
+		}
+		json.put("hospital", bill.getHospital());
+		json.put("applyMoney", bill.getApplyMoney());
+		json.put("description", bill.getDescription());
+		
+		return JSONObject.toJSONString(json);
+	}
+}

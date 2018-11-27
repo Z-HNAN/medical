@@ -1,0 +1,10 @@
+package cn.edu.hdu.zhn.medical.base.service;
+
+/**
+ * 医务室服务类
+ * @author Z_HNAN
+ *
+ */
+public interface IMedicalRoomService {
+
+}

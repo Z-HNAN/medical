@@ -1,0 +1,3 @@
+content-types/org.eclipse.jst.jsp.core.jspfragmentsource/file-extensions=ftl
+content-types/org.eclipse.wst.html.core.htmlsource/file-names=showPermission.ftl,hello.ftl,5xx.ftl,index.ftl,a.ftl
+eclipse.preferences.version=1

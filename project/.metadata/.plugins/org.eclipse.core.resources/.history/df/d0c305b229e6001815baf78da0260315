@@ -1,0 +1,19 @@
+package cn.edu.hdu.zhn.medical.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+/**
+ * 大病类型的controller
+ * @author Z_HNAN
+ *
+ */
+@Controller
+public class SeriousController {
+	
+	@RequestMapping("seriousList")
+	public String seriousList(Model model) {
+		
+	}
+}

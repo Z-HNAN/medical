@@ -1,0 +1,30 @@
+package cn.edu.hdu.zhn.medical.base.service.impl;
+
+import static org.assertj.core.api.Assertions.contentOf;
+
+import java.io.File;
+import java.math.BigDecimal;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Service;
+
+import cn.edu.hdu.zhn.medical.base.service.IBankService;
+
+@Service
+@PropertySource({"classpath:bussiness.properties"})
+public class BankServiceImpl implements IBankService{
+	
+	@Value("${bank.trans.api}")
+	private String bankTransAPI;
+	
+	@Value("${bank.privateKey}")
+	private String privateKey;
+
+	@Override
+	public boolean transfer(String bankNumber, BigDecimal amount, String privateKey) {
+		return false;
+	}
+
+	
+}

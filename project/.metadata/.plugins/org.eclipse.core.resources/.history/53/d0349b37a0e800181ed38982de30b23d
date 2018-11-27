@@ -1,0 +1,42 @@
+package cn.edu.hdu.zhn.medical.mgrsite.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+/**
+ * 账单相关的控制器
+ * @author Z_HNAN
+ *
+ */
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import cn.edu.hdu.zhn.medical.base.query.BillAuditQueryObject;
+import cn.edu.hdu.zhn.medical.base.service.IBillService;
+@Controller		
+public class BillController {
+
+	@Autowired
+	private IBillService billService;
+	
+	/**
+	 * 医务室审核账单的方法
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("auditBill")
+	public String auditBill(Model model) {
+		return "";
+	}
+	
+	/**
+	 * 医务室查看账单详列表的方法
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("billAuditListDept")
+	public String billAuditListDept(@ModelAttribute("qo")BillAuditQueryObject qo,  Model model) {
+		model.addAttribute("pageResult", this.billService.queryAudit(qo));
+		return ""
+	}
+}

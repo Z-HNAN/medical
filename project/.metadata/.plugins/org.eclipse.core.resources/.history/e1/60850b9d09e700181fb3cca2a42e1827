@@ -1,0 +1,8 @@
+package cn.edu.hdu.zhn.medical.base.vo;
+
+@Getter
+@Setter
+public class FullComDept {
+	
+		
+}

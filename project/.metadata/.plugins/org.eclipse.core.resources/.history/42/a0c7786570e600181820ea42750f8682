@@ -1,0 +1,15 @@
+package cn.edu.hdu.zhn.medical.base.service;
+
+/**
+ * 报销账单服务类
+ * @author Z_HNAN
+ *
+ */
+public interface IBillService {
+
+	/**
+	 * 创建一个报销单账户
+	 * @param br
+	 */
+	void createBill(Bill br);
+}

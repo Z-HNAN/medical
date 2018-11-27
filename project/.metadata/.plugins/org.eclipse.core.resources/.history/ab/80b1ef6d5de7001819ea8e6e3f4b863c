@@ -1,0 +1,24 @@
+package cn.edu.hdu.zhn.medical.website.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import cn.edu.hdu.zhn.medical.base.service.IBillService;
+import cn.edu.hdu.zhn.medical.website.anno.RequiredLogin;
+
+@Controller
+public class BillHistoryController {
+	
+	
+	@Autowired
+	private IBillService billService;
+
+	@RequestMapping("/billHistory")
+	@RequiredLogin
+	public String billHistory(Model model){
+		billService.listByEmpId();
+		return "billHistory";
+	}
+}

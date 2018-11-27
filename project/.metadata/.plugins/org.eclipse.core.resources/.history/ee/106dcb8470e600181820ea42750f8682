@@ -1,0 +1,17 @@
+package cn.edu.hdu.zhn.medical.base.service.impl;
+
+import org.springframework.stereotype.Service;
+
+import cn.edu.hdu.zhn.medical.base.domain.Bill;
+import cn.edu.hdu.zhn.medical.base.service.IBillService;
+
+@Service
+public class BillServiceImpl implements IBillService{
+
+	@Override
+	public void createBill(Bill br) {
+		
+	}
+
+	
+}

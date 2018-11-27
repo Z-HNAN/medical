@@ -1,0 +1,166 @@
+package cn.edu.hdu.zhn.medical.base.domain;
+
+import java.math.BigDecimal;
+import java.util.Date;
+
+public class Bill {
+    private Long id;
+
+    private Byte billState;
+
+    private Long applierId;
+
+    private Byte illnessType;
+
+    private Long seriousTypeId;
+
+    private String hospital;
+
+    private Date inHospitalDate;
+
+    private Date outHospitalDate;
+
+    private BigDecimal applyMoney;
+
+    private String description;
+
+    private String billImg;
+
+    private Long comDeptId;
+
+    private Long auditorId;
+
+    private Date auditDate;
+
+    private String note;
+
+    private BigDecimal auditMoney;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Byte getBillState() {
+        return billState;
+    }
+
+    public void setBillState(Byte billState) {
+        this.billState = billState;
+    }
+
+    public Long getApplierId() {
+        return applierId;
+    }
+
+    public void setApplierId(Long applierId) {
+        this.applierId = applierId;
+    }
+
+    public Byte getIllnessType() {
+        return illnessType;
+    }
+
+    public void setIllnessType(Byte illnessType) {
+        this.illnessType = illnessType;
+    }
+
+    public Long getSeriousTypeId() {
+        return seriousTypeId;
+    }
+
+    public void setSeriousTypeId(Long seriousTypeId) {
+        this.seriousTypeId = seriousTypeId;
+    }
+
+    public String getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(String hospital) {
+        this.hospital = hospital;
+    }
+
+    public Date getInHospitalDate() {
+        return inHospitalDate;
+    }
+
+    public void setInHospitalDate(Date inHospitalDate) {
+        this.inHospitalDate = inHospitalDate;
+    }
+
+    public Date getOutHospitalDate() {
+        return outHospitalDate;
+    }
+
+    public void setOutHospitalDate(Date outHospitalDate) {
+        this.outHospitalDate = outHospitalDate;
+    }
+
+    public BigDecimal getApplyMoney() {
+        return applyMoney;
+    }
+
+    public void setApplyMoney(BigDecimal applyMoney) {
+        this.applyMoney = applyMoney;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getBillImg() {
+        return billImg;
+    }
+
+    public void setBillImg(String billImg) {
+        this.billImg = billImg;
+    }
+
+    public Long getComDeptId() {
+        return comDeptId;
+    }
+
+    public void setComDeptId(Long comDeptId) {
+        this.comDeptId = comDeptId;
+    }
+
+    public Long getAuditorId() {
+        return auditorId;
+    }
+
+    public void setAuditorId(Long auditorId) {
+        this.auditorId = auditorId;
+    }
+
+    public Date getAuditDate() {
+        return auditDate;
+    }
+
+    public void setAuditDate(Date auditDate) {
+        this.auditDate = auditDate;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public BigDecimal getAuditMoney() {
+        return auditMoney;
+    }
+
+    public void setAuditMoney(BigDecimal auditMoney) {
+        this.auditMoney = auditMoney;
+    }
+}

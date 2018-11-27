@@ -1,0 +1,64 @@
+package cn.edu.hdu.zhn.medical.mgrsite.controller;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+/**
+ * 处理登录判断对的controller
+ * @author Z_HNAN
+ *
+ */
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import cn.edu.hdu.zhn.medical.base.domain.Logininfo;
+import cn.edu.hdu.zhn.medical.base.service.ILogininfoService;
+import cn.edu.hdu.zhn.medical.base.util.JSONResult;
+
+
+@Controller
+public class LoginController {
+	
+	@Autowired
+	private ILogininfoService logininfoService;
+
+	/**
+	 * 处理管理员的登录的
+	 * @return
+	 */
+	@RequestMapping("adminLogin")
+	public JSONResult adminLogin(String username, String password, HttpServletRequest request) {
+		JSONResult json = new JSONResult();
+		int userType = Logininfo.USER_TYPE_ADMIN;
+		try {
+			this.logininfoService.login(username, password, userType, request);
+		} catch (Exception e) {
+			json.setSuccess(false);
+			json.setMsg(e.getMessage());
+		}
+		return json;
+	}
+	
+	
+	/**
+	 * 处理卫生所的登录的
+	 * @return
+	 */
+	@RequestMapping("comLogin")
+	public String comLogin(String username, String password, HttpServletRequest request) {
+		int userType = Logininfo.USER_TYPE_MEDICAL_COM;
+		this.logininfoService.login(username, password, userType, request);
+		return "";
+	}
+	
+	/**
+	 * 处理医务室的登录的
+	 * @return
+	 */
+	@RequestMapping("deptLogin")
+	public String deptLogin(String username, String password, HttpServletRequest request) {
+		int userType = Logininfo.USER_TYPE_MEDICAL_ROOM;
+		this.logininfoService.login(username, password, userType, request);
+		return "";
+	}
+}

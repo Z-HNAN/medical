@@ -1,0 +1,21 @@
+package cn.edu.hdu.zhn.mock.mockBank;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+@RequestMapping("bankService")
+public class BankController {
+
+	/**
+	 * 模拟转账接口
+	 * @return
+	 */
+	@RequestMapping("transferAccounts")
+	@ResponseBody
+	public String transferAccounts(List<>) {
+		
+		return "SUCCESS";
+	}
+}

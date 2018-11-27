@@ -1,0 +1,21 @@
+package cn.edu.hdu.zhn.medical.controller;
+
+import org.springframework.stereotype.Controller;
+/**
+ * 处理登录判断对的controller
+ * @author Z_HNAN
+ *
+ */
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import cn.edu.hdu.zhn.medical.base.util.JSONResult;
+@Controller
+public class LoginController {
+	
+	
+	@RequestMapping("adminLogin")
+	public String adminLogin() {
+		
+	}
+}

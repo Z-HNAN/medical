@@ -1,0 +1,60 @@
+package cn.edu.hdu.zhn.medical.base.service;
+
+import java.math.BigDecimal;
+import java.util.List;
+
+import cn.edu.hdu.zhn.medical.base.domain.Bill;
+import cn.edu.hdu.zhn.medical.base.query.BillAuditQueryObject;
+import cn.edu.hdu.zhn.medical.base.query.BillHistoryQueryObject;
+import cn.edu.hdu.zhn.medical.base.query.PageResult;
+
+/**
+ * 报销账单服务类
+ * @author Z_HNAN
+ *
+ */
+public interface IBillService {
+
+	/**
+	 * 创建一个报销单账户
+	 * @param br 前台传过来的数据
+	 */
+	void createBill(Bill br);
+
+	/**
+	 * 查询出账户对应的所有Bill
+	 * @param id
+	 * @return
+	 */
+	List<Bill> listByEmpId(Long id);
+	
+	/**
+	 * billHistory的高级分页查询
+	 * @param qo
+	 * @return
+	 */
+	PageResult query(BillHistoryQueryObject qo);
+
+	/**
+	 * BillAudit 的高级分页查询
+	 * @param qo
+	 * @return
+	 */
+	PageResult queryAudit(BillAuditQueryObject qo);
+
+	Bill get(Long id);
+
+	/**
+	 * 更新操作
+	 * @param bill
+	 */
+	void update(Bill bill);
+
+	/**
+	 * 查询某个公司下 此状态的所有账单总和
+	 * @param id
+	 * @param billStateWaitMoney
+	 * @return
+	 */
+	BigDecimal getBillsMoneyByComIdAndBillState(Long comId, int billState);
+}

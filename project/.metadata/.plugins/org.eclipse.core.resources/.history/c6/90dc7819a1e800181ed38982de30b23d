@@ -1,0 +1,37 @@
+package cn.edu.hdu.zhn.medical.base.mapper;
+
+import java.util.List;
+
+import cn.edu.hdu.zhn.medical.base.domain.Bill;
+import cn.edu.hdu.zhn.medical.base.query.BillHistoryQueryObject;
+import cn.edu.hdu.zhn.medical.base.query.QueryObject;
+
+
+public interface BillMapper {
+    int insert(Bill record);
+
+    Bill selectByPrimaryKey(Long id);
+
+    int updateByPrimaryKey(Bill record);
+
+    /**
+     * 查询此用户对应的所有账单
+     * @param id
+     * @return
+     */
+	List<Bill> listByEmpId(Long id);
+
+	/**
+	 * 高级查询条数（要带用户id）
+	 * @param qo
+	 * @return
+	 */
+	int queryForCount(QueryObject qo);
+
+	/**
+	 * 查询符合条件的用户数（要带用户id）
+	 * @param qo
+	 * @return
+	 */
+	List<Bill> queryList(BillHistoryQueryObject qo);
+}

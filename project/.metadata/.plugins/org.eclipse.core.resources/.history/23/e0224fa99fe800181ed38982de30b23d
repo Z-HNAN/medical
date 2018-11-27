@@ -1,0 +1,15 @@
+package cn.edu.hdu.zhn.medical.base.query;
+
+import java.util.Date;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+public class BillAuditQueryObject extends QueryObject{
+	
+
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date beginDate;		// 开始时间
+	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date endDate;		// 结束时间
+}

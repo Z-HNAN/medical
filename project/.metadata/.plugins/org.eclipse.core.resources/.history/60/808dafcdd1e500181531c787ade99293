@@ -1,0 +1,5 @@
+package cn.edu.hdu.zhn.medical.base.service;
+
+public interface ISystemDictionaryItemService {
+
+}

@@ -1,0 +1,43 @@
+package cn.edu.hdu.zhn.medical.base.domain;
+
+public class ComDept {
+    private Long id;
+
+    private String comDeptName;
+
+    private Byte type;
+
+    private Long parentComDept;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getComDeptName() {
+        return comDeptName;
+    }
+
+    public void setComDeptName(String comDeptName) {
+        this.comDeptName = comDeptName;
+    }
+
+    public Byte getType() {
+        return type;
+    }
+
+    public void setType(Byte type) {
+        this.type = type;
+    }
+
+    public Long getParentComDept() {
+        return parentComDept;
+    }
+
+    public void setParentComDept(Long parentComDept) {
+        this.parentComDept = parentComDept;
+    }
+}

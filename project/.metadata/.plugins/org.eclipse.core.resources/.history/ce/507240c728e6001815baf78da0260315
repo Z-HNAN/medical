@@ -1,0 +1,48 @@
+package cn.edu.hdu.zhn.medical.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+/**
+ * 处理登录判断对的controller
+ * @author Z_HNAN
+ *
+ */
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import cn.edu.hdu.zhn.medical.base.service.ILogininfoService;
+
+
+@Controller
+public class LoginController {
+	
+	@Autowired
+	private ILogininfoService logininfoService;
+
+	/**
+	 * 处理管理员的登录的
+	 * @return
+	 */
+	@RequestMapping("adminLogin")
+	public String adminLogin(String username, String password) {
+
+	}
+	
+	
+	/**
+	 * 处理卫生所的登录的
+	 * @return
+	 */
+	@RequestMapping("comLogin")
+	public String comLogin() {
+		
+	}
+	
+	/**
+	 * 处理医务室的登录的
+	 * @return
+	 */
+	@RequestMapping("deptLogin")
+	public String deptLogin() {
+		
+	}
+}

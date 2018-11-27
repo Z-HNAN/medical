@@ -1,0 +1,24 @@
+package cn.edu.hdu.zhn.medical.base.mapper;
+
+import org.apache.ibatis.annotations.Param;
+
+import cn.edu.hdu.zhn.medical.base.domain.Logininfo;
+
+public interface LogininfoMapper {
+	int insert(Logininfo record);
+
+	Logininfo selectByPrimaryKey(Long id);
+
+	int updateByPrimaryKey(Logininfo record);
+	
+	int getCountByUserType(int userType);
+
+	/**
+	 * 判断用户登录的方法
+	 * @param username
+	 * @param password
+	 * @return
+	 */
+	Logininfo login(@Param("username") String username, @Param("password") String password);
+
+}

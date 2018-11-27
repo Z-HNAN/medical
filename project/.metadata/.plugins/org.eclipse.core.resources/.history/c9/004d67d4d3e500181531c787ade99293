@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.hdu.zhn.medical.base.mapper.SystemDictionaryItemMapper">
+
+  <resultMap id="BaseResultMap" type="cn.edu.hdu.zhn.medical.base.domain.SystemDictionaryItem">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="desc" jdbcType="VARCHAR" property="desc" />
+    <result column="sequence" jdbcType="INTEGER" property="sequence" />
+    <result column="isdel" jdbcType="TINYINT" property="isdel" />
+  </resultMap>
+  
+  <update id="deleteByPrimaryKey" >
+   UPDATE `system_dictionary_item`
+   SET isdel = 1
+   WHERE id = #{id}
+  </update>
+  
+  <insert id="insert" keyColumn="id" keyProperty="id" useGeneratedKeys="true">
+    insert into `system_dictionary_item` (title, desc, sequence, isdel)
+    values (#{title,jdbcType=VARCHAR}, #{desc,jdbcType=VARCHAR}, #{sequence,jdbcType=INTEGER}, 0)
+  </insert>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap">
+    select id, title, desc, sequence, isdel
+    from `system_dictionary_item`
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  
+</mapper>

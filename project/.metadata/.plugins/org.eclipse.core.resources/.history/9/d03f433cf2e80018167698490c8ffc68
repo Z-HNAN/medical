@@ -1,0 +1,25 @@
+package cn.edu.hdu.zhn.medical.base.service;
+
+import cn.edu.hdu.zhn.medical.base.domain.Employee;
+
+/**
+ * 员工信息相关服务
+ * @author Z_HNAN
+ *
+ */
+public interface IEmployeeService {
+
+	/**
+	 * 通过id查询员工对象
+	 * @param id
+	 * @return
+	 */
+	Employee getById(Long id);
+
+	/**
+	 * 插入一条记录
+	 * @param employee
+	 * @param dept
+	 */
+	void save(Employee employee, Long dept);
+}

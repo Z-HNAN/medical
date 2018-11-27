@@ -1,0 +1,16 @@
+package cn.edu.hdu.zhn.medical.mgrsite.test;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+public class AppTest {
+	
+	@Test
+	public void test1() throws Exception {
+		
+	}
+
+}

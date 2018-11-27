@@ -1,0 +1,14 @@
+package cn.edu.hdu.zhn.medical.mgrsite.controller;
+
+import org.springframework.stereotype.Controller;
+/**
+ * 账单相关的控制器
+ * @author Z_HNAN
+ *
+ */
+import org.springframework.web.bind.annotation.RequestMapping;
+@Controller		
+public class BillController {
+
+	@RequestMapping("auditBill")
+}

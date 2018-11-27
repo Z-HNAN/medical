@@ -1,0 +1,11 @@
+package cn.edu.hdu.zhn.medical.base.service;
+
+/**
+ * 部门信息的服务对象
+ * @author Z_HNAN
+ *
+ */
+public interface IComDeptService {
+
+	
+}

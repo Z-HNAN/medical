@@ -1,0 +1,68 @@
+package cn.edu.hdu.zhn.medical.mgrsite.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+/**
+ * 账单相关的控制器
+ * @author Z_HNAN
+ *
+ */
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import cn.edu.hdu.zhn.medical.base.domain.Bill;
+import cn.edu.hdu.zhn.medical.base.domain.MedicalRoom;
+import cn.edu.hdu.zhn.medical.base.query.BillAuditQueryObject;
+import cn.edu.hdu.zhn.medical.base.service.IBillService;
+import cn.edu.hdu.zhn.medical.base.service.IEmployeeService;
+import cn.edu.hdu.zhn.medical.base.service.IMedicalRoomService;
+import cn.edu.hdu.zhn.medical.base.util.UserContext;
+import cn.edu.hdu.zhn.medical.mgrsite.anno.RequiredLogin;
+@Controller		
+public class BillController {
+
+	@Autowired
+	private IBillService billService;
+	
+	@Autowired
+	private IEmployeeService employeeService;
+	
+	@Autowired
+	private IMedicalRoomService medicalRoomService;
+	
+	/**
+	 * 医务室审核账单的方法
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("auditBill")
+	public String auditBill(Model model) {
+		return "";
+	}
+	
+	/**
+	 * 医务室查看账单详列表的方法
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("billAuditListDept")
+	@RequiredLogin
+	public String billAuditListDept(@ModelAttribute("qo")BillAuditQueryObject qo, Model model, Long jobId, String realname) {
+		
+		// 判断是否需要查询具体的员工信息
+		if(jobId != null || realname != null) {
+			Long employeeId =  this.employeeService.getIdByJobIdOrRealname(jobId, realname);
+			qo.setEmployeeId(employeeId);
+		}
+		
+		MedicalRoom medicalRoom = this.medicalRoomService.getByPrincipalId(UserContext.getCurrent().getId());
+		// 设置 当前comId为审核人所在的公司
+		qo.setComId(medicalRoom.getCom().getId());
+		// 设置当前订单的 状态为审核中的状态
+		qo.setBillState(Bill.BILL_STATE_PENDING);
+		
+		model.addAttribute("pageResult", this.billService.queryAudit(qo));
+		return "dept/bill_list";
+	}
+}

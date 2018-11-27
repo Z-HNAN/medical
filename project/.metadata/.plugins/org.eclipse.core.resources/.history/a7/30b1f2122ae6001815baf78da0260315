@@ -1,0 +1,7 @@
+package cn.edu.hdu.zhn.medical.base.query;
+
+@Getter
+@Setter
+public class SystemDictionaryQueryObject extends QueryObject{
+
+}
