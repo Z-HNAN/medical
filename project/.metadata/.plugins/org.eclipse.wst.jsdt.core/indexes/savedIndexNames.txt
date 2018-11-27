@@ -1,8 +1,0 @@
-INDEX VERSION 1.4+G:\practic\java\innovate_class\medical\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-3181951865.index
-3032536497.index
-3930243520.index
-3502155540.index
-1395543664.index
-1268808058.index
-2872937267.index

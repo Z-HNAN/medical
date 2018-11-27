@@ -1,6 +1,0 @@
-package cn.edu.hdu.zhn.medical.mgrsite.controller;
-
-@Controller		
-public class BillController {
-
-}

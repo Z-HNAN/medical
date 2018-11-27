@@ -1,7 +1,0 @@
-package cn.edu.hdu.zhn.medical.base.service.impl;
-
-import cn.edu.hdu.zhn.medical.base.service.IBankService;
-
-public class BankServiceImpl implements IBankService{
-
-}

@@ -1,6 +1,0 @@
-package cn.edu.hdu.zhn.medical.base.service.impl;
-
-@Service
-public class SystemDictionaryItemServiceImpl implements{
-
-}
