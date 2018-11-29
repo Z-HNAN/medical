@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<settings>
+		<!-- 配置日志文件 -->
+		<!--<setting name="logImpl" value="LOG4J" />-->
+
+		<!-- 设置懒加载 提高性能 -->
+		<setting name="lazyLoadTriggerMethods" value="clone" />
+		<setting name="lazyLoadingEnabled" value="true" />
+		<setting name="aggressiveLazyLoading" value="false" />
+
+	</settings>
+
+	<typeAliases>
+		<package name="cn.edu.hdu.innovate.medical.domain"/>
+	</typeAliases>
+
+	<!-- 使用下面的方式配置参数，后面会有所有的参数介绍 -->
+	<!-- com.github.pagehelper为PageHelper类所在包名 -->
+	<!-- <plugins>
+		<plugin interceptor="com.github.pagehelper.PageInterceptor">
+			<property name="reasonable" value="true" />
+		</plugin>
+	</plugins> -->
+
+
+</configuration>
