@@ -11,13 +11,13 @@ import java.math.BigDecimal;
 import java.util.HashMap;
 
 @Service
-@PropertySource({"classpath:conf/business.properties"})
+//@PropertySource({"classpath:conf/business.properties"})
 public class BankServiceImpl implements IBankService {
 	
-	@Value("${bank.trans.api}")
+//	@Value("${bank.trans.api}")
 	private String bankTransAPI;
 	
-	@Value("${bank.privateKey}")
+//	@Value("${bank.privateKey}")
 	private String privateKey;
 
 	@Override

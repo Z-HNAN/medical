@@ -36,7 +36,7 @@
 									<div class="col-xs-5">
 											<label for="realname" class="col-sm-4 control-label">姓名</label>
 											<div class="col-sm-8">
-												<p name="realname" id="realname" class="form-control-static">${employee.realname}</p>
+												<p name="realname" id="realname" class="form-control-static">${(employee.realname)!}</p>
 											</div>
 									</div>
 									<div class="col-xs-4">

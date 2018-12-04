@@ -16,12 +16,11 @@ public interface ILogininfoService {
 	 * 用户登录的方法
 	 * @param username
 	 * @param password
-	 * @param request 
-	 * @param userType 
+	 * @param request
 	 * @return
 	 */
-	void login(String username, String password, int userType, HttpServletRequest request);
-	
+//	void login(String username, String password, int userType, HttpServletRequest request);
+	void login(String username, String password, HttpServletRequest request);
 	/**
 	 * 根据用户类型 返回当前的用户数量
 	 * @param userType 用户类型

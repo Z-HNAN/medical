@@ -41,6 +41,7 @@
   <select id="login" resultMap="BaseResultMap">
   	SELECT <include refid="base_column"/>
   	FROM `logininfo`
-  	WHERE username = #{username} AND password = #{password} AND user_type = #{userType}
+
+    WHERE username = #{username} AND password = #{password}
   </select>
 </mapper>

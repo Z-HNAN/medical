@@ -19,8 +19,10 @@ public class LogininfoServiceImpl implements ILogininfoService {
 	private LogininfoMapper logininfoMapper;
 
 	@Override
-	public void login(String username, String password, int userType, HttpServletRequest request) {
-		Logininfo logininfo = this.logininfoMapper.login(username, password, userType);
+//	public void login(String username, String password, int userType, HttpServletRequest request) {
+//		Logininfo logininfo = this.logininfoMapper.login(username, password, userType);
+	public void login(String username, String password, HttpServletRequest request) {
+		Logininfo logininfo = this.logininfoMapper.login(username, password);
 		if (logininfo == null) {
 			throw new RuntimeException("用户名或密码错误");
 		}
